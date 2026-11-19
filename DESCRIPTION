@@ -1,0 +1,36 @@
+Package: plotly.express
+Type: Package
+Title: Quick Interactive Figures with 'plotly.js'
+Version: 0.1.0
+Authors@R: c(
+    person("Matthew", "Summersgill", email = "matthew.summersgill@gmail.com",
+           role = c("aut", "cre"), comment = c(ORCID = "0009-0007-2955-5543")),
+    person("Nicolas", "Kruchten", role = "ctb",
+           comment = c(ORCID = "0000-0002-8416-789X", "'plotly.py' express module")),
+    person("Plotly Technologies Inc.", role = "cph",
+           comment = "Port of 'plotly.py' express module; datasets from 'plotly.py'")
+  )
+Description: High-level functions that make a complete interactive figure from
+    a data frame in one call (scatter, line, bar, histogram, box, map, polar,
+    3D, hierarchy and other charts), with faceting, marginal plots,
+    trendlines, animation and colour mapping. A port of the 'express' module
+    of the 'plotly' Python package, built on the 'plotly.core' package.
+License: MIT + file LICENSE
+Copyright: See file inst/COPYRIGHTS
+Depends: R (>= 4.1.0)
+Imports:
+    base64enc,
+    data.table,
+    jsonlite,
+    plotly.core,
+    stats,
+    utils
+Suggests:
+    crosstalk,
+    png
+Remotes: plotly.core=msummersgill/plotly.R.core
+URL: https://github.com/msummersgill/plotly.R.express
+BugReports: https://github.com/msummersgill/plotly.R.express/issues
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2

@@ -1,0 +1,14 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^CLAUDE\.md$
+^\.claude$
+^tools$
+^LICENSE\.md$
+^air\.toml$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
+^\.githooks$
+^README\.md$
+^man/figures$

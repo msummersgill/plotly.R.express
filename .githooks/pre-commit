@@ -1,0 +1,32 @@
+#!/bin/sh
+# Refuse commits with R files that Air (https://posit-dev.github.io/air/) would
+# reformat, and format them so they can be reviewed and staged again.
+# Enable once per clone with: git config core.hooksPath .githooks
+
+files=$(git diff --cached --name-only --diff-filter=ACMR -- '*.R')
+[ -z "$files" ] && exit 0
+
+air=$(command -v air || true)
+[ -z "$air" ] && [ -x "$HOME/.local/bin/air" ] && air="$HOME/.local/bin/air"
+if [ -z "$air" ]; then
+  echo "pre-commit: Air not found, R files not checked (https://posit-dev.github.io/air/)" >&2
+  exit 0
+fi
+
+# check the staged versions, not the working tree
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+cp air.toml "$tmp/" 2>/dev/null
+for f in $files; do
+  mkdir -p "$tmp/$(dirname "$f")"
+  git show ":$f" > "$tmp/$f"
+done
+if (cd "$tmp" && "$air" format --check $files > /dev/null 2>&1); then
+  exit 0
+fi
+
+echo "pre-commit: these staged R files are not formatted with Air:" >&2
+(cd "$tmp" && "$air" format --check $files 2>&1 | grep '^  - ') >&2
+echo "Formatting them now; review the changes, stage them and commit again." >&2
+echo "$files" | xargs "$air" format
+exit 1

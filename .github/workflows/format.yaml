@@ -1,0 +1,23 @@
+# Check that R code is formatted with Air (https://posit-dev.github.io/air/),
+# using the settings in air.toml. Fix locally with `air format .`.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+name: format
+
+permissions: read-all
+
+jobs:
+  air:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: posit-dev/setup-air@v1
+        with:
+          version: "0.13.0"
+
+      - name: Check formatting
+        run: air format . --check

@@ -1,0 +1,10 @@
+plotly.express is a port of the express module of the plotly Python package
+(plotly.py, https://github.com/plotly/plotly.py).
+  Copyright (c) Plotly Technologies Inc.
+  MIT licence.
+
+inst/extdata/
+  Datasets from the plotly Python package (plotly.express.data)
+  Copyright (c) Plotly Technologies Inc.
+  MIT licence. The datasets credit their original sources in plotly.py's
+  documentation.

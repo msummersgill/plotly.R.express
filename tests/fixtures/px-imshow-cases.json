@@ -1,0 +1,9 @@
+[
+ {"name": "imshow_heatmap", "img": [[1, 20, 30], [20, 1, 60], [30, 60, 1]], "dtype": "float64", "kwargs": {"text_auto": true}},
+ {"name": "imshow_heatmap_options", "img": [[1, 2, 3], [4, 5, 6]], "dtype": "float64", "kwargs": {"origin": "lower", "aspect": "auto", "labels": {"x": "col", "y": "row", "color": "value"}, "x": [10, 20, 30], "y": ["a", "b"], "color_continuous_scale": "RdBu", "zmin": 0}},
+ {"name": "imshow_rgb_array", "img": [[[255, 0, 0], [0, 255, 0]], [[0, 0, 255], [255, 255, 0]]], "dtype": "uint8", "kwargs": {"binary_string": false}},
+ {"name": "imshow_rgb_float_png", "img": [[[1.0, 0, 0], [0, 1.0, 0]], [[0, 0, 1.0], [0.5, 0.5, 0]]], "dtype": "float64", "kwargs": {"binary_string": true}},
+ {"name": "imshow_facets", "img": [[[1, 2], [3, 4]], [[5, 6], [7, 8]], [[9, 10], [11, 12]]], "dtype": "float64", "kwargs": {"facet_col": 0, "facet_col_wrap": 2}},
+ {"name": "imshow_animation", "img": [[[1, 2], [3, 4]], [[5, 6], [7, 8]]], "dtype": "float64", "kwargs": {"animation_frame": 0}},
+ {"name": "imshow_dataframe", "img": [[1, 2, 3], [4, 5, 6]], "dtype": "float64", "dataframe": true, "columns": ["a", "b", "c"], "kwargs": {}}
+]
