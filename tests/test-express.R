@@ -5,6 +5,9 @@
 library(plotly.core)
 library(plotly.express)
 
+# the fixtures were made by plotly.py with its default template
+default_template("plotly")
+
 cases <- jsonlite::read_json(
   file.path("fixtures", "px-cases.json"),
   simplifyVector = TRUE,
